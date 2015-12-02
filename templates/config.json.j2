@@ -1,0 +1,21 @@
+{
+    "masters": [{% for host in groups['mesosmaster'] %}"{{hostvars[host]['ansible_default_ipv4']['address']}}:5050"{% if not loop.last %},{% endif %}{% endfor %}],
+    "refreshSeconds": 60,
+    "ttl": 60,
+    "domain": "mesos",
+    "port": 53,
+    "resolvers": {{mesos_dns_upstream_resolvers}},
+    "timeout": 5,
+    "httpon": true,
+    "dnson": true,
+    "httpport": 8123,
+    "externalon": true,
+    "listener": "{{ansible_default_ipv4.address}}",
+    "SOAMname": "root.ns1.mesos",
+    "SOARname": "ns1.mesos",
+    "SOARefresh": 60,
+    "SOARetry":   600,
+    "SOAExpire":  86400,
+    "SOAMinttl": 60,
+    "IPSources": ["netinfo", "mesos", "host"]
+}
