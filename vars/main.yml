@@ -1,6 +1,5 @@
 ---
 mesos_dns_app : 'mesos-dns-{{mesos_dns_ver}}-{{mesos_dns_platform}}'
-mesos_dns_app_gz : '{{mesos_dns_app}}.gz'
-mesos_dns_url : 'https://github.com/mesosphere/mesos-dns/releases/download/{{mesos_dns_ver}}/{{mesos_dns_app_gz}}'
+mesos_dns_url : 'https://github.com/mesosphere/mesos-dns/releases/download/{{mesos_dns_ver}}/{{mesos_dns_app}}'
 installed_mesos_dns_app : '{{mesos_dns_target_dir}}/{{mesos_dns_app}}'
 mesos_dns_config_json : '{{mesos_dns_config_dir}}/config.json'

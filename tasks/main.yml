@@ -1,15 +1,12 @@
 ---
 - name: download mesos-dns
-  get_url: url='{{mesos_dns_url}}' dest='/tmp/{{mesos_dns_app_gz}}'
+  get_url: >
+    url='{{mesos_dns_url}}'
+    dest='{{installed_mesos_dns_app}}'
+    mode=0755
+    owner=root
+    group=root
 
-- name: un-gz
-  shell: gunzip -c '/tmp/{{mesos_dns_app_gz}}' > '{{installed_mesos_dns_app}}'
-  args:
-    creates: '{{installed_mesos_dns_app}}'
-
-- name: chmod to executable
-  file: path={{installed_mesos_dns_app}} mode=0755
-    
 - name: link
   file: >
     src='{{installed_mesos_dns_app}}'
