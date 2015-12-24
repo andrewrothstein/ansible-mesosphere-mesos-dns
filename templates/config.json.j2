@@ -4,7 +4,7 @@
     "ttl": 60,
     "domain": "mesos",
     "port": 53,
-    "resolvers": {{mesos_dns_upstream_resolvers}},
+    "resolvers": {{mesos_dns_upstream_resolvers|safe}},
     "timeout": 5,
     "httpon": true,
     "dnson": true,
