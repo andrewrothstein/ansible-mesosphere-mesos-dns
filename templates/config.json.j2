@@ -4,7 +4,7 @@
     "ttl": 60,
     "domain": "mesos",
     "port": 53,
-    "resolvers": {{mesos_dns_upstream_resolvers|safe}},
+    "resolvers": [{% for resolver in mesos_dns_upstream_resolvers %}"{{resolver}}"{% if not loop.last %},{% endif %}{% endfor %}],
     "timeout": 5,
     "httpon": true,
     "dnson": true,
