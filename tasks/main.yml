@@ -33,6 +33,9 @@
   template: >
     src='mesos-dns.service.j2'
     dest='/etc/systemd/system/mesos-dns.service'
+    owner=root
+    group=root
+    mode=0644
 
 - name: systemctl daemon-reload
   command: systemctl daemon-reload
