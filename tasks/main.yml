@@ -30,6 +30,7 @@
     group=root
   
 - name: install service
+  register: mesos_dns_service_install
   template: >
     src='mesos-dns.service.j2'
     dest='/etc/systemd/system/mesos-dns.service'
@@ -38,6 +39,7 @@
     mode=0644
 
 - name: systemctl daemon-reload
+  when: mesos_dns_service_install.changed
   command: systemctl daemon-reload
 
 - name: launch mesos-dns...
