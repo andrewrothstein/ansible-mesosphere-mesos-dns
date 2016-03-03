@@ -10,10 +10,11 @@ mesos_dns_upstream_resolvers:
 
 mesos_dns:
   dnson : true
+  dnsport : 53
+  httpon : true
+  httpport : 8123
   externalon : true
   domain: mesos
-  dnsport : 53
-  httpport : 8123,
   SOAMname : 'root.ns1.mesos'
   SOARname : 'ns1.mesos'
   IPSources:

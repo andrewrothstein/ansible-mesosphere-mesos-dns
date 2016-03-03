@@ -6,7 +6,7 @@
     "port": {{mesos_dns.dnsport | to_json}},
     "resolvers": {{ mesos_dns_upstream_resolvers | to_json}},
     "timeout": 5,
-    "httpon": true,
+    "httpon": {{ mesos_dns.httpon | to_json}},
     "dnson": {{mesos_dns.dnson | to_json}},
     "httpport": {{mesos_dns.httpport | to_json}},
     "externalon": {{mesos_dns.externalon | to_json}},
