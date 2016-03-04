@@ -4,18 +4,16 @@ mesos_dns_platform : 'linux-amd64'
 mesos_dns_target_dir : '/usr/local/bin'
 mesos_dns_config_dir : '/usr/local/mesos-dns'
 
+mesos_dns_dnson : true
+mesos_dns_dnsport : 53
+mesos_dns_httpon : true
+mesos_dns_httpport : 8123
+mesos_dns_externalon : true
+mesos_dns_domain: mesos
+mesos_dns_SOAMname : 'root.ns1.mesos'
+mesos_dns_SOARname : 'ns1.mesos'
+mesos_dns_IPSources:
+  - host
 mesos_dns_upstream_resolvers:
   - "8.8.8.8"
   - "8.8.4.4"
-
-mesos_dns:
-  dnson : true
-  dnsport : 53
-  httpon : true
-  httpport : 8123
-  externalon : true
-  domain: mesos
-  SOAMname : 'root.ns1.mesos'
-  SOARname : 'ns1.mesos'
-  IPSources:
-    - host
