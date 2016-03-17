@@ -4,7 +4,11 @@
     "ttl": 60,
     "domain": {{mesos_dns_domain | to_json}},
     "port": {{mesos_dns_dnsport | to_json}},
+{% if mesos_dns_upstream_resolvers is defined %}
     "resolvers": {{ mesos_dns_upstream_resolvers | to_json}},
+{% elif ansible_dns.nameservers is defined %}    
+    "resolvers": {{ ansible_dns.nameservers | to_json}},
+{% endif %}
     "timeout": 5,
     "httpon": {{ mesos_dns_httpon | to_json}},
     "dnson": {{mesos_dns_dnson | to_json}},
