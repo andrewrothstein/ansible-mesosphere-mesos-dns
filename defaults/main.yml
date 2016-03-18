@@ -4,6 +4,7 @@ mesos_dns_platform : 'linux-amd64'
 mesos_dns_target_dir : '/usr/local/bin'
 mesos_dns_config_dir : '/usr/local/mesos-dns'
 
+mesos_dns_listener: '127.0.0.1'
 mesos_dns_dnson : true
 mesos_dns_dnsport : 8053
 mesos_dns_httpon : true

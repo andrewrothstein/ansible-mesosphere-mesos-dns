@@ -14,7 +14,7 @@
     "dnson": {{mesos_dns_dnson | to_json}},
     "httpport": {{mesos_dns_httpport | to_json}},
     "externalon": {{mesos_dns_externalon | to_json}},
-    "listener": {{ansible_default_ipv4.address | to_json}},
+    "listener": {{mesos_dns_listener | to_json}},
     "SOAMname": {{mesos_dns_SOAMname | to_json}},
     "SOARname": {{mesos_dns_SOARname | to_json}},
     "SOARefresh": 60,
