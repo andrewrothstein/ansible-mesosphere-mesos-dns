@@ -9,7 +9,7 @@
 {% elif ansible_dns.nameservers is defined %}    
     "resolvers": {{ ansible_dns.nameservers | to_json}},
 {% endif %}
-    "timeout": 5,
+    "timeout": {{ mesos_dns_timeout | to_json}},,
     "httpon": {{ mesos_dns_httpon | to_json}},
     "dnson": {{mesos_dns_dnson | to_json}},
     "httpport": {{mesos_dns_httpport | to_json}},

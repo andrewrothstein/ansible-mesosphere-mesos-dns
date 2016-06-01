@@ -25,6 +25,7 @@ mesos_dns_SOAExpire : 86400
 mesos_dns_SOAMinttl : 60
 mesos_dns_refreshSeconds : 60
 mesos_dns_ttl : 60
+mesos_dns_timeout : 5
   
 #mesos_dns_upstream_resolvers:
 #  - "8.8.8.8"
