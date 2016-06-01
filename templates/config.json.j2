@@ -1,7 +1,7 @@
 {
-    "masters": [{% for host in groups['mesosmaster'] %}"{{hostvars[host]['ansible_default_ipv4']['address']}}:5050"{% if not loop.last %},{% endif %}{% endfor %}],
-    "refreshSeconds": 60,
-    "ttl": 60,
+    "masters": [{% for host in groups['mesosmaster'] %}"{{hostvars[host]['ansible_' + hostvars[host]['mesos_dns_mesos_master_iface']]['ipv4']['address']}}:{{mesos_dns_mesos_master_port}}"{% if not loop.last %},{% endif %}{% endfor %}],
+    "refreshSeconds": {{mesos_dns_refreshSeconds | to_json}},
+    "ttl": {{mesos_dns_ttl | to_json}},
     "domain": {{mesos_dns_domain | to_json}},
     "port": {{mesos_dns_dnsport | to_json}},
 {% if mesos_dns_upstream_resolvers is defined %}
@@ -17,9 +17,9 @@
     "listener": {{mesos_dns_listener | to_json}},
     "SOAMname": {{mesos_dns_SOAMname | to_json}},
     "SOARname": {{mesos_dns_SOARname | to_json}},
-    "SOARefresh": 60,
-    "SOARetry":   600,
-    "SOAExpire":  86400,
-    "SOAMinttl": 60,
+    "SOARefresh": {{mesos_dns_SOARefresh | to_json}},
+    "SOARetry": {{mesos_dns_SOARetry | to_json}},
+    "SOAExpire":  {{mesos_dns_SOAExpire | to_json}},
+    "SOAMinttl": {{mesos_dns_SOAMinttl | to_json}},
     "IPSources": {{mesos_dns_IPSources | to_json}}
 }
